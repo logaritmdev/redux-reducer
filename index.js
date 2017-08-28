@@ -4,7 +4,11 @@
  */
 export function createReducer(initial, handlers) {
 
-	return function(state = initial, action) {
+	return function(state, action) {
+
+		if (state == null) {
+			state = initial
+		}
 
 		var handler = handlers[action.type]
 		if (handler) {
